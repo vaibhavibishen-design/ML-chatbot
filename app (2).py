@@ -11,35 +11,63 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # ---------- CSS ----------
-st.markdown("""
-<style>
+if dark_mode:
+    st.markdown("""
+    <style>
 
-.stApp{
-    background:#F5F7FB;
-}
+    .stApp{
+        background:#0E1117;
+        color:white;
+    }
 
-[data-testid="stHeader"]{
-    background:transparent;
-}
+    [data-testid="stSidebar"]{
+        background:#1E1E1E;
+    }
 
-[data-testid="stSidebar"]{
-    background:#262730;
-}
+    h1,h2,h3,p,label,span{
+        color:white !important;
+    }
 
-h1{
-    text-align:center;
-    color:#4F46E5;
-}
+    [data-testid="stChatMessage"]{
+        background:#262730;
+        border-radius:12px;
+        padding:10px;
+        margin-bottom:10px;
+    }
 
-.block-container{
-    padding-top:1.5rem;
-}
+    </style>
+    """, unsafe_allow_html=True)
 
-</style>
-""", unsafe_allow_html=True)
+else:
+    st.markdown("""
+    <style>
+
+    .stApp{
+        background:#F5F7FB;
+    }
+
+    [data-testid="stSidebar"]{
+        background:#ECEFF5;
+    }
+
+    h1{
+        color:#4F46E5;
+    }
+
+    [data-testid="stChatMessage"]{
+        background:white;
+        border-radius:12px;
+        padding:10px;
+        margin-bottom:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
 
 # ---------- Sidebar ----------
 with st.sidebar:
+    dark_mode = st.toggle("🌙 Dark Mode")
 
     st.title("🤖 ML Chatbot")
 
