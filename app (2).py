@@ -10,6 +10,39 @@ st.set_page_config(
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+
+# ---------- Sidebar ----------
+with st.sidebar:
+    
+
+    st.title("🤖 ML Chatbot")
+    dark_mode = st.toggle("🌙 Dark Mode")
+
+    st.markdown("---")
+
+    if st.button("➕ New Chat"):
+        st.session_state.messages = []
+        st.rerun()
+
+    st.markdown("### 📚 Suggested Questions")
+
+    st.write("• What is Machine Learning?")
+    st.write("• Explain Artificial Intelligence")
+    st.write("• Python Interview Questions")
+    st.write("• Data Science Roadmap")
+
+    st.markdown("---")
+
+    st.markdown("### ℹ About")
+
+    st.info("""
+This chatbot is developed using Streamlit.
+
+Developer: Vaibhavi Bishen
+""")
+#------------css-----------
+
+
 # ---------- CSS ----------
 if dark_mode:
     st.markdown("""
@@ -64,35 +97,6 @@ else:
 
     </style>
     """, unsafe_allow_html=True)
-
-# ---------- Sidebar ----------
-with st.sidebar:
-    dark_mode = st.toggle("🌙 Dark Mode")
-
-    st.title("🤖 ML Chatbot")
-
-    st.markdown("---")
-
-    if st.button("➕ New Chat"):
-        st.session_state.messages = []
-        st.rerun()
-
-    st.markdown("### 📚 Suggested Questions")
-
-    st.write("• What is Machine Learning?")
-    st.write("• Explain Artificial Intelligence")
-    st.write("• Python Interview Questions")
-    st.write("• Data Science Roadmap")
-
-    st.markdown("---")
-
-    st.markdown("### ℹ About")
-
-    st.info("""
-This chatbot is developed using Streamlit.
-
-Developer: Vaibhavi Bishen
-""")
 
 # ---------- Main ----------
 st.title("🤖 ML Chatbot")
