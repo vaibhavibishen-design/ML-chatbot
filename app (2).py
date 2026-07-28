@@ -72,6 +72,17 @@ st.title("🤖 ML Chatbot")
 st.caption("Your AI Learning Assistant")
 
 # Welcome Message
+st.markdown("### 💡 Try asking:")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.button("🤖 What is Machine Learning?")
+    st.button("🐍 Explain Python")
+
+with col2:
+    st.button("📊 Data Science Roadmap")
+    st.button("🧠 What is Deep Learning?")
 if len(st.session_state.messages) == 0:
 
     st.chat_message("assistant").write(
@@ -126,3 +137,13 @@ if prompt:
             "content":response
         }
     )
+    st.markdown("---")
+st.markdown(
+    """
+    <div style="text-align:center;color:gray;">
+        🤖 ML Chatbot | Built with ❤️ using Streamlit <br>
+        © 2026 Vaibhavi Bishen
+    </div>
+    """,
+    unsafe_allow_html=True
+)
